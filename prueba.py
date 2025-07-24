@@ -1,15 +1,25 @@
-# def analizar_numeros(numberList):
-#     aux_list =[] # create data set of second point
-#     my_dictionary={}
-    
-#     aux_list = {x for x in numberList if isinstance(x, (float, int))} # compression list
-#     aux_set = set(aux_list)  # convert list to set
-#     my_dictionary['max'] = max(aux_set)
-#     my_dictionary['min'] = min(aux_set)
-#     my_dictionary['prom'] = round((sum(aux_set) / len(aux_set)),2)
-#     return my_dictionary
-    
-# entrada = [1, 2, 3, 'a', 'b', 4.5, 6] 
-# salida = analizar_numeros(entrada)
-# print(salida)
+def analizador (*args, **kwargs):
+    enteros=0
+    strings=0
+    detalles=[]
+    resumen = {}
+    for x in args: # read single iputs
+        if isinstance(x, int):
+            enteros+= x
+        else:pass # ignore other types
 
+    for key, value in kwargs.items(): # read 
+        if isinstance (value, str):
+            strings+=1
+        detalles.append((key, type(value).__name__))
+
+    #dictionary for export resume    
+    resumen['enteros'] = enteros
+    resumen['strings'] = strings
+    resumen['detalles'] = detalles
+    
+    return resumen
+
+
+salida = analizador(1, 3, "hola", edad=30, nombre="jose", apellido = "salas", activo=True)
+print(salida)
