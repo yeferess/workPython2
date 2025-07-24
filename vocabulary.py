@@ -9,6 +9,8 @@ def comparar_vocabulary(*frases):
         frase = frase.lower()
         palabras= frase.split()
         lista_palabras.extend(palabras)   
+    
+    # palabras_unicas = {palabra for palabra in lista_palabras if lista_palabras.count(palabra) == 1}
 
     for palabra in lista_palabras:
         for word in lista_palabras:
