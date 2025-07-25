@@ -9,18 +9,23 @@ def comparar_vocabulary(*frases):
         frase = frase.lower()
         palabras= frase.split()
         lista_palabras.extend(palabras)   
-    
-    # palabras_unicas = {palabra for palabra in lista_palabras if lista_palabras.count(palabra) == 1}
+        
 
-    for palabra in lista_palabras:
-        for word in lista_palabras:
-            if palabra == word:
-                contador += 1
-        if contador == 1:
-            palabras_unicas.add(palabra)   
-        if contador > 1:
-            palabras_comunes.add(palabra)
-        contador = 0
+    # for palabra in lista_palabras:
+    #     for word in lista_palabras:
+    #         if palabra == word:
+    #             contador += 1
+    #     if contador == 1:
+    #         palabras_unicas.add(palabra)   
+    #     if contador > 1:
+    #         palabras_comunes.add(palabra)
+    #     contador = 0
+
+    #using compresion List
+    palabras_unicas = {palabra for palabra in lista_palabras if lista_palabras.count(palabra) == 1}
+    palabras_comunes = {palabra for palabra in lista_palabras if lista_palabras.count(palabra) >1}
+
+   
     resumen['palabras_unicas'] = palabras_unicas
     resumen['palabras_comunes'] = palabras_comunes
 
